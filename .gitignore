@@ -1,0 +1,11 @@
+*~
+.#*
+CMakeFiles/
+CMakeCache.txt
+Makefile
+
+CTestTestfile.cmake
+cmake_install.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+Testing/
