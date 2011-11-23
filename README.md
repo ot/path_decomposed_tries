@@ -2,7 +2,7 @@ path_decomposed_tries
 =====================
 
 This library implements the data structures described in the paper
-"Fast Compressed Tries using Path Decomposition".
+[*Fast Compressed Tries using Path Decomposition*](http://arxiv.org/abs/1111.5220).
 
 Both the unit tests and the perftest contain good examples of how to
 use the structures. More examples will follow.
