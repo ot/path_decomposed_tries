@@ -282,7 +282,7 @@ namespace tries {
                         size_t largest_child_size = 0;
                     
                         for (size_t i = 0; i < children.size(); ++i) {
-                            if (children[i].second->size() >= largest_child_size) {
+                            if (i == 0 || children[i].second->size() > largest_child_size) {
                                 largest_child = i;
                                 largest_child_size = children[i].second->size();
                             }
