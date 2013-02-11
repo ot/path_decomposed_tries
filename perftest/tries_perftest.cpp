@@ -189,6 +189,7 @@ int main(int argc, char** argv)
     benchmarks["hollow_gamma"] = make_shared<benchmark_trie_index<succinct::tries::hollow_trie<succinct::gamma_vector> > >();
     benchmarks["hollow_elias"] = make_shared<benchmark_trie_index<succinct::tries::hollow_trie<succinct::elias_fano_list> > >();
     benchmarks["hollow_vector"] = make_shared<benchmark_trie_index<succinct::tries::hollow_trie<succinct::mapper::mappable_vector<uint16_t> > > >();
+    benchmarks["centroid_hollow"] = make_shared<benchmark_trie_index<succinct::tries::centroid_hollow_trie> >();
 
     benchmarks["centroid"] = make_shared<benchmark_trie_2way<succinct::tries::path_decomposed_trie<succinct::tries::vbyte_string_pool > > >();
     benchmarks["centroid_repair"] = make_shared<benchmark_trie_2way<succinct::tries::path_decomposed_trie<succinct::tries::compressed_string_pool > > >();
