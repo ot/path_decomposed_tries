@@ -18,8 +18,6 @@ if (UNIX)
    set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -g) # Add debug info anyway
 endif()
 
-option(DEBUG "Compile without optimizations" OFF)
-
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Release")
 endif()
@@ -34,6 +32,21 @@ include_directories(${PATH_DECOMPOSED_TRIES_SOURCE_DIR})
 
 # succinct subdirectory
 add_subdirectory(succinct EXCLUDE_FROM_ALL)
+# propagate compilation options from succinct
+# XXX(ot): this is ugly, how can this be made better
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")	
+   if (SUCCINCT_USE_LIBCXX) 
+     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+   endif ()
+endif ()
+
+if (SUCCINCT_USE_POPCNT)
+  if (UNIX)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.2")
+  endif ()
+  # XXX(ot): what to do for MSVC?
+endif ()
+
 
 # tries
 add_subdirectory(tries)  
